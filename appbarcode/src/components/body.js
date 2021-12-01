@@ -11,7 +11,6 @@ import BarcodeForm from './forms.js';
 class Body extends React.Component {
     constructor(props){
         super(props);
-        //console.log("Body "+this.props.serial[0])
 
     }
     
@@ -19,7 +18,7 @@ render(){
     return(
         <div>
             <h1>Body</h1> 
-            <BarcodeForm serial = { this.props.serial } mac={ this.props.mac } desc={this.props.desc} />
+            <BarcodeForm cards={this.props.cards} serial = { this.props.serial } mac={ this.props.mac } desc={this.props.desc} />
             <BarcodeCardList />              
 
         </div>

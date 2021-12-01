@@ -8,7 +8,8 @@ function App() {
   const [mac, setMac] = useState('');
   const [serial, setSerial] = useState('');
   const [description, setDescription] = useState('')
-
+  const [cardArray,appendCardArray] = useState([]);
+  // const arr = [];
   //console.log("App "+ serial);
 
 
@@ -19,7 +20,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Body serial = {[serial,setSerial]} mac={[mac, setMac]} desc={[description, setDescription]}/>
+        <Body cards={[cardArray, appendCardArray]} serial = {[serial,setSerial]} mac={[mac, setMac]} desc={[description, setDescription]}/>
 
       </header>
     </div>
