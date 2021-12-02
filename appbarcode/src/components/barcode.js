@@ -1,6 +1,6 @@
 import react from 'react';
 import { useBarcode } from 'react-barcodes';
-import { Card } from 'react-bootstrap';
+// import { Card } from 'react-bootstrap';
 
 //import JsBarcode from 'jsbarcode';
 
