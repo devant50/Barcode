@@ -1,21 +1,24 @@
 import react from 'react';
+import { useBarcode } from 'react-barcodes';
+import { Card } from 'react-bootstrap';
+
 //import JsBarcode from 'jsbarcode';
 
 // JsBarcode("water", "Wassup?");
 
-class generateBarcode extends react.Component{
-    constructor(props){
-        super(props);
-    }
+function GenerateBarcode (props){
+    const { inputRef } = useBarcode({
+        value: props.barcode,
+        options: {
+          background: '#ffffff',
+        }
+    });
 
-
-    render(){
-        return(
-            <div>
-                {/* <svg id='water'></svg> */}
-            </div>
-        )
-    }
+    return(
+        <div>
+            <img ref={inputRef} style={{width: "16rem"}} variant="top"/>
+        </div>
+    )
 }
 
-export default generateBarcode;
+export default GenerateBarcode;
