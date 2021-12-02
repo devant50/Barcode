@@ -9,9 +9,6 @@ function App() {
   const [serial, setSerial] = useState('');
   const [description, setDescription] = useState('')
   const [cardArray,appendCardArray] = useState([]);
-  // const arr = [];
-  //console.log("App "+ serial);
-
 
   return (
     <div className="App">

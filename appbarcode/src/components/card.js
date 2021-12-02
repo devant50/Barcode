@@ -2,7 +2,7 @@ import react from 'react';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 import barcode_p from './resources/barcode_placeholder.png';
-
+import generateBarcode from './barcode.js';
 class BarcodeCard extends react.Component{
 
 
@@ -14,8 +14,8 @@ class BarcodeCard extends react.Component{
                     <Card.Img style={{width: "12rem"}} variant="top" src={barcode_p} />
                     <Card.Body>
                     <ListGroup>
-                        <ListGroupItem>SERIAL</ListGroupItem>
-                        <ListGroupItem>MAC</ListGroupItem>
+                        <ListGroupItem>{this.props.serial}</ListGroupItem>
+                        <ListGroupItem>{this.props.mac}</ListGroupItem>
                     </ListGroup>
                     </Card.Body>
                 </Card>

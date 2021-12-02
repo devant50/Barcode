@@ -14,38 +14,36 @@ class BarcodeForm extends react.Component{
     }
 
     handleSerialChange(e){
-        //console.log(e.target.value);
-        // console.log(e.target);
         this.props.serial[1](e.target.value);
-        console.log("Handle Serial Change: "+this.props.serial[0]);
     }
 
     handleMacChange(e){
         this.props.mac[1](e.target.value);
-        console.log("Handle Mac Change: "+this.props.mac[0]);
     }
     handleDescChange(e){
         this.props.desc[1](e.target.value);
-        console.log("Handle Desc Change: "+this.props.desc[0]);
     }
     toArray(){
-        const arr = this.props.cards[0];
-        arr.push(
-            {serial: this.props.serial,
-                mac: this.props.mac,
-                desc: this.props.desc
-            }
-        )
-        console.log(arr)
-        this.props.cards[1](arr);
-        // console.log("From state: "+ this.props.cards[0]);
+        // var
+        const currentArray = this.props.cards[0];
+        const newElement = [{
+            serial: this.props.serial[0],
+            mac: this.props.mac[0],
+            desc: this. props.desc[0]
+        }]
+
+        this.props.cards[1](currentArray.concat(newElement));
+    }
+
+    getHistory(){
+        console.log(this.props.cards[0])
     }
 
 
     handleSubmit(e){
         e.preventDefault();
-        this.toArray();
-
+        //this.toArray();
+        this.getHistory();
     }
 
     
@@ -66,7 +64,7 @@ class BarcodeForm extends react.Component{
                     </Col>
                 </Row>
                 <Row>
-                    <Button type="submit">Submit</Button>
+                    <Button onClick={()=>{this.toArray()}} type="submit">Submit</Button>
                 </Row>
                 </Form>
             </div>
