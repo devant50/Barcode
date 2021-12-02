@@ -9,7 +9,9 @@ class BarcodeForm extends react.Component{
         //console.log("BarcodeForm "+props.serial[0])
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.addNewItem = this.addNewItem.bind(this);
+        // this.toArray = this.toArray.bind(this);
+
+       
 
     }
 
@@ -28,24 +30,22 @@ class BarcodeForm extends react.Component{
         this.props.desc[1](e.target.value);
         console.log("Handle Desc Change: "+this.props.desc[0]);
     }
-    toArray(){
-        const arr = this.props.cards[0];
-        arr.push(
-            {serial: this.props.serial,
-                mac: this.props.mac,
-                desc: this.props.desc
-            }
-        )
-        console.log(arr)
-        this.props.cards[1](arr);
-        // console.log("From state: "+ this.props.cards[0]);
-    }
+    toAdd(){
+        this.props.record[1]([...this.props.record[0], 
+            {
+                mac: this.props.mac[0],
+                serial: this.props.serial[0],
+                desc: this.props.desc[0]
+              }
+        ])
+        console.log("Submitted "+ this.props.record[0][1]);
 
+        
+    }
 
     handleSubmit(e){
         e.preventDefault();
-        this.toArray();
-
+        this.toAdd();
     }
 
     

@@ -7,10 +7,16 @@ import { useState } from 'react';
 function App() {
   const [mac, setMac] = useState('');
   const [serial, setSerial] = useState('');
-  const [description, setDescription] = useState('')
-  const [cardArray,appendCardArray] = useState([]);
-  // const arr = [];
-  //console.log("App "+ serial);
+  const [description, setDescription] = useState('');
+  const [record, setRecord] = useState([
+    {
+      mac: '',
+      serial: '',
+      desc: ''
+    }
+  ]);
+  
+
 
 
   return (
@@ -20,7 +26,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Body cards={[cardArray, appendCardArray]} serial = {[serial,setSerial]} mac={[mac, setMac]} desc={[description, setDescription]}/>
+        <Body record = {[record, setRecord]} serial = {[serial,setSerial]} mac={[mac, setMac]} desc={[description, setDescription]}/>
 
       </header>
     </div>

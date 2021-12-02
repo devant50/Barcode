@@ -18,7 +18,7 @@ render(){
     return(
         <div>
             <h1>Body</h1> 
-            <BarcodeForm cards={this.props.cards} serial = { this.props.serial } mac={ this.props.mac } desc={this.props.desc} />
+            <BarcodeForm record={this.props.record} serial = { this.props.serial } mac={ this.props.mac } desc={this.props.desc} />
             <BarcodeCardList />              
 
         </div>
