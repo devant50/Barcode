@@ -10,9 +10,9 @@ class BarcodeCardList extends react.Component{
     render(){
         return(
             <div>
-                <h4>BarcodeCardList</h4>
+                <h4>Barcode Card List</h4>
                 {this.props.cards[0].map((card) =>{
-                   return <BarcodeCard key={this.props.cards.key} mac={card.mac} serial={card.serial} desc={card.desc}/>
+                   return <BarcodeCard style={{ width: '18rem', marginTop: '50px' }} key={this.props.cards.key} mac={card.mac} serial={card.serial} desc={card.desc}/>
 
                 })}
             </div>

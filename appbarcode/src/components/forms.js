@@ -42,7 +42,7 @@ class BarcodeForm extends react.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        //this.toArray();
+        this.toArray();
         this.getHistory();
     }
 
@@ -64,7 +64,7 @@ class BarcodeForm extends react.Component{
                     </Col>
                 </Row>
                 <Row>
-                    <Button onClick={()=>{this.toArray()}} type="submit">Submit</Button>
+                    <Button type="submit">Submit</Button>
                 </Row>
                 </Form>
             </div>

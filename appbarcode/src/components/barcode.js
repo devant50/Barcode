@@ -11,12 +11,14 @@ function GenerateBarcode (props){
         value: props.barcode,
         options: {
           background: '#ffffff',
+          height: 50,
+          margin: 20
         }
     });
 
     return(
         <div>
-            <img ref={inputRef} style={{width: "16rem"}} variant="top"/>
+            <img ref={inputRef}/>
         </div>
     )
 }
