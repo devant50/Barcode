@@ -17,9 +17,20 @@ class Body extends React.Component {
 render(){
     return(
         <div>
-            <h1>Body</h1> 
-            <BarcodeForm cards={this.props.cards} serial = { this.props.serial } mac={ this.props.mac } desc={this.props.desc} />
-            <BarcodeCardList cards={this.props.cards}/>              
+            <h1>Barcode Label App</h1> 
+            
+
+            <BarcodeForm 
+                status ={this.props.status} 
+                cards={this.props.cards} 
+                serial = { this.props.serial } 
+                mac={ this.props.mac } 
+                desc={this.props.desc} 
+            /> 
+            <BarcodeCardList 
+                // counter={this.props.counter} 
+                cards={this.props.cards}
+            />              
 
         </div>
 

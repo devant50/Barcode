@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
     "barcode": "^0.1.0",
-    "bootstrap": "^5.1.3",
+    "bootstrap": "file:node_modules/bootstrap",
     "jsbarcode": "^3.11.5",
     "react": "^17.0.2",
     "react-barcodes": "^1.2.0",

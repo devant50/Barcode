@@ -9,17 +9,22 @@ function App() {
   const [serial, setSerial] = useState('');
   const [description, setDescription] = useState('')
   const [cardArray,appendCardArray] = useState([]);
+  const [isReady, setReady] = useState(false);
+  // const [counter, setCounter] = useState(0);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Body cards={[cardArray, appendCardArray]} serial = {[serial,setSerial]} mac={[mac, setMac]} desc={[description, setDescription]}/>
 
-      </header>
+      <Body 
+        cards={[cardArray, appendCardArray]} 
+        serial = {[serial,setSerial]} 
+        mac={[mac, setMac]} 
+        desc={[description, setDescription]}
+        status = {[isReady, setReady]} 
+        // counter ={[counter, setCounter]}
+        />
+
+      
     </div>
   );
 }

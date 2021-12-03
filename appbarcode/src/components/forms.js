@@ -25,16 +25,23 @@ class BarcodeForm extends react.Component{
     }
     toArray(){
         // var
+        // let num = 1;
         const currentArray = this.props.cards[0];
         const newElement = [{
             serial: this.props.serial[0],
             mac: this.props.mac[0],
-            desc: this. props.desc[0]
+            desc: this. props.desc[0],
+            //id: num+1
         }]
 
         this.props.cards[1](currentArray.concat(newElement));
     }
+    onPrint(){
+        // console.log(this.props.status[1])
+        this.props.status[1](!this.props.status[0])
+        // console.warn(this.props.status[0]);
 
+    }
     getHistory(){
         console.log(this.props.cards[0])
     }
@@ -43,8 +50,20 @@ class BarcodeForm extends react.Component{
     handleSubmit(e){
         e.preventDefault();
         this.toArray();
-        this.getHistory();
+        // this.getHistory();
+        console.log(e)
     }
+
+
+    // validate(){
+    //     // Check if the field is empty
+    //     // if field is empty, alert empty field
+    //     mac = this.props.mac[0];
+    //     serial = this.props.serial[0];
+    //     desc = this.props.desc[0];
+
+    //     serial.length === 0 ? alert('Serial Empty'); 
+    // }
 
     
 
@@ -52,19 +71,28 @@ class BarcodeForm extends react.Component{
         return(
             <div>
                 <Form onSubmit={this.handleSubmit}>
+                {
+                    
+                    !this.props.status[0] ? (          
+                    <Row>
+                        <Col>
+                        <Form.Control size="lg" value={this.props.serial[0]} onChange={(e)=>{this.handleSerialChange(e)}} title='serial' placeholder="SERIAL" />
+                        </Col>
+                        <Col>
+                        <Form.Control size="lg" value={this.props.mac[0]} onChange={(e)=>{this.handleMacChange(e)}} title='mac'placeholder="MAC_ADDRESS" />
+                        </Col>
+                        <Col>
+                        <Form.Control size="lg" value={this.props.desc[0]} onChange={(e)=>{this.handleDescChange(e)}} title='desc' placeholder="DESCRIPTION" />
+                        </Col>
+                    </Row> ): null
+                    
+                }
                 <Row>
-                    <Col>
-                    <Form.Control value={this.props.serial[0]} onChange={(e)=>{this.handleSerialChange(e)}} title='serial' placeholder="SERIAL" />
-                    </Col>
-                    <Col>
-                    <Form.Control value={this.props.mac[0]} onChange={(e)=>{this.handleMacChange(e)}} title='mac'placeholder="MAC_ADDRESS" />
-                    </Col>
-                    <Col>
-                    <Form.Control value={this.props.desc[0]} onChange={(e)=>{this.handleDescChange(e)}} title='desc' placeholder="DESCRIPTION" />
-                    </Col>
-                </Row>
-                <Row>
-                    <Button type="submit">Submit</Button>
+                    <div >
+                        <Button type="submit">Submit</Button>
+                        <Button onClick={()=>{this.onPrint()}}>Print</Button>
+                    </div>
+
                 </Row>
                 </Form>
             </div>
