@@ -50,11 +50,8 @@ class BarcodeForm extends react.Component{
         this.props.cards[1](currentArray.concat(newElement));
     }
     onPrint(){
-        // console.log(this.props.status[1])
-        this.props.status[1](!this.props.status[0])
-        // console.warn(this.props.status[0]);
+        //this.props.status[1](!this.props.status[0])
 
-        
         let divContents = document.getElementById("BCL").innerHTML;
         let a = window.open('', '', 'height=500, width=500');
         a.document.write('<html>');
@@ -97,22 +94,39 @@ class BarcodeForm extends react.Component{
             <div>
                 <Form onSubmit={this.handleSubmit}>
                 {
-                    
+            //(true/false)? [return true] : [return false]
+            //When use clicks print, the form is hidden.
                     !this.props.status[0] ? (          
                     <Col>
                         <Row>
                             <div className='mb-1'>
-                            <Form.Control size="md" value={this.props.serial[0]} onChange={(e)=>{this.handleSerialChange(e)}} title='serial' placeholder="SERIAL" />
+                            <Form.Control
+                                id="serial" 
+                                size="md" 
+                                value={this.props.serial[0]} 
+                                onChange={(e)=>{this.handleSerialChange(e)}} 
+                                title='serial' 
+                                placeholder="SERIAL" />
                             </div>
                         </Row>
                         <Row>
                             <div className='mb-1'>
-                            <Form.Control size="md" value={this.props.mac[0]} onChange={(e)=>{this.handleMacChange(e)}} title='mac'placeholder="MAC_ADDRESS" />
+                            <Form.Control 
+                                size="md" 
+                                value={this.props.mac[0]} 
+                                onChange={(e)=>{this.handleMacChange(e)}} 
+                                title='mac'
+                                placeholder="MAC_ADDRESS" />
                             </div>
                         </Row>
                         <Row>
                             <div className='mb-1'>
-                            <Form.Control size="md" value={this.props.desc[0]} onChange={(e)=>{this.handleDescChange(e)}} title='desc' placeholder="DESCRIPTION" />
+                            <Form.Control 
+                                size="md" 
+                                value={this.props.desc[0]} 
+                                onChange={(e)=>{this.handleDescChange(e)}} 
+                                title='desc' 
+                                placeholder="DESCRIPTION" />
                             </div>
                         </Row>
                     </Col> ): null

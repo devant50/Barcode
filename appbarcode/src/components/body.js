@@ -1,9 +1,7 @@
 import React from 'react';
-// import react from 'react'
-// import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
-
 import BarcodeCardList from './cardList.js';
 import BarcodeForm from './forms.js';
+//import './scanner';
 
 
 
@@ -16,29 +14,21 @@ class Body extends React.Component {
     
 render(){
     return(
-        // Core App
-        // <div>
-        //     <h1>Barcode Label App</h1> 
-            
 
- 
-              
-
-        // </div>
-        <div className='container border' > 
+        <div className='container-fluid border' > 
             <h2>Entry</h2>
             <div className='row border mx-auto'>
                 Logo
             </div>
             <div className="row">
-                <div className="col-4 border mx-auto mb-2">
+                <div className="col-5 border mx-auto mb-2">
                     <BarcodeForm 
                         status ={this.props.status} 
                         cards={this.props.cards} 
                         serial = { this.props.serial } 
                         mac={ this.props.mac } 
                         desc={this.props.desc} 
-                    />    
+                    />
                 </div>
 
                 {/* Barcode List */}

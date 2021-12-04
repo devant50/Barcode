@@ -10,6 +10,7 @@
     "barcode": "^0.1.0",
     "bootstrap": "file:node_modules/bootstrap",
     "jsbarcode": "^3.11.5",
+    "quagga": "^0.12.1",
     "react": "^17.0.2",
     "react-barcodes": "^1.2.0",
     "react-bootstrap": "^2.0.2",

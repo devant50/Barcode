@@ -18,7 +18,7 @@ function GenerateBarcode (props){
 
     return(
         <div>
-            <img ref={inputRef} className='img-fluid' />
+            <img ref={inputRef} className='img-fluid rounded' />
         </div>
     )
 }
