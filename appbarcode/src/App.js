@@ -1,13 +1,15 @@
 // import { useState } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
+// import './App.css';
 import Body from './components/body.js';
 import { useState } from 'react';
 
 function App() {
-  const [mac, setMac] = useState('');
-  const [serial, setSerial] = useState('');
-  const [description, setDescription] = useState('')
+  const [mac, setMac] = useState('AA:BB:CC:03:02:01');
+  const [serial, setSerial] = useState('ABC123SERIAL');
+  const [description, setDescription] = useState('6920 Phone')
   const [cardArray,appendCardArray] = useState([]);
   const [isReady, setReady] = useState(false);
   // const [counter, setCounter] = useState(0);

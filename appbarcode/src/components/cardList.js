@@ -21,9 +21,9 @@ class BarcodeCardList extends react.Component{
 
     render(){
         return(
-            <div>
-                <h2>Barcode Card List</h2>
-                <Table variant="dark" >
+            <div id='BCL'>
+                {/* <h2>Barcode Card List</h2> */}
+                <Table className="table table-sm table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -35,7 +35,7 @@ class BarcodeCardList extends react.Component{
                     <tbody>
                     {this.props.cards[0].map((card, index ) =>{
                         return(
-                            <tr style={{}}>
+                            <tr>
                                 <BarcodeCard 
                                     counter={index+1} 
                                     key={index}  
