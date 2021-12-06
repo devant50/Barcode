@@ -17,7 +17,7 @@ render(){
 
         <div className='container-fluid border' > 
             <h2>Entry</h2>
-            <div className='row border mx-auto'>
+            <div id='console' className='row border mx-auto'>
                 Logo
             </div>
             <div className="row">
