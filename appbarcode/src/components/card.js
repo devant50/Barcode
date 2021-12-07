@@ -1,5 +1,5 @@
 import react from 'react';
-import { Table } from 'react-bootstrap';
+//import { Table } from 'react-bootstrap';
 // import { useBarcode } from 'react-barcodes';
 import GenerateBarcode from './barcode.js';
 

@@ -1,94 +1,60 @@
 // import Button from "@restart/ui/esm/Button";
 import react from "react";
 import { Form, Row, Col, Button } from 'react-bootstrap';
-import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
 
 
 class BarcodeForm extends react.Component{
     constructor(props){
         super(props);
-        //console.log("BarcodeForm "+props.serial[0])
-
         this.handleSubmit = this.handleSubmit.bind(this);
-      
+    
+        //error state
+        this.state={
+            serialError: {},
+            macError: {}, 
+            descError: {}
+        }
+    
     }
 
     handleSerialChange(e){
-        if(e.target.value.length == 0){
-                //Logs Missing Serial Number
-            console.log("Error: Missing Serial")
-                //Sets the value of the serial field to empty if less than 1 Characters 
-            this.props.serial[1]('')
-
-            //this.setState({serialValid: false});
-                //disables the submit button 
-            //this.submitDisabled();
-            
-        }else{
-            this.props.serial[1](e.target.value);
-            // this.setState({serialValid: true})
-            // console.log('handleSerial');
-            // console.log(this.state)
-
-        }
+        this.props.serial[1](e.target.value);
+        //console.log("Serial: "+this.props.serial[0]);  
+        console.log("Serial: "+e.target.value);      
     }
 
     handleMacChange(e){
-        if(e.target.value.length < 1){
-                //Logs Missing MAC Address
-            console.log("Error: Missing MAC Address")
-                //Sets the value of the MAC field to empty if less than 1 Characters 
-            this.props.mac[1]('')
-                //disables the submit button 
-            //this.submitDisabled();
-            // this.setState({macValid: false});
-            
-        }else{
-                //if there is a value, sets Mac to entered value
-            this.props.mac[1](e.target.value);
-            this.setState({macValid: true});
-
-            // console.log('handleMac');
-            // console.log(this.state)
-                //enable submit button
-            //this.submitEnabled();
-        }
+        this.props.mac[1](e.target.value);
+        //console.log("MAC: "+this.props.desc[0]);
+        console.log("MAC: "+e.target.value);      
+       
     }
 
     handleDescChange(e){
-        if(e.target.value.length == ''){
-                //Logs Missing Description
-            console.log("Error: Missing Description")
-                //Sets the value of the description field to empty if less than 1 Characters 
-            this.props.desc[1]('')
-                //disables the submit button 
-            //this.submitDisabled();
-            // this.setState({descValid: false});
-            
-        }else{
-                //if there is a value, set description to entered value
-            this.props.desc[1](e.target.value);
-            // this.setState({descValid: true});
+        this.props.desc[1](e.target.value);
+        // console.log("Desc: "+this.props.desc[0]);   
+        console.log("Desc: "+e.target.value);      
+    
 
-            // console.log('handleDesc');
-            // console.log(this.state)
-                //enable submit button
-            //this.submitEnabled();
-        }
+        //console.log("Description: "+ this.props.desc[0]);
+    }
+
+    handleError(){
+
     }
 
     //clears out the feilds after submit
     clearFields(){
         this.props.serial[1]('');
         this.props.mac[1]('');
-        this.props.desc[1]('');
+        //this.props.desc[1]('');
 
         //invalidated the fields unless they are refilled
-        this.setState({
-            serialValid: false,
-            macValid: false,
-            descValid: false
-        });
+        // this.setState({
+        //     serialValid: false,
+        //     macValid: false,
+        //     descValid: false
+        // });
        
     }
 
@@ -109,7 +75,7 @@ class BarcodeForm extends react.Component{
         const newElement = [{
             serial: this.props.serial[0],
             mac: this.props.mac[0],
-            desc: this. props.desc[0],
+            desc: this.props.desc[0],
             //id: num+1
         }]
 
@@ -134,12 +100,56 @@ class BarcodeForm extends react.Component{
     handleSubmit(e){
 
         e.preventDefault();
-            
-        this.toArray();
+        //validation
+        const isValid = this.formValidation(); //returns true or false
+        
+        //console.log(isValid);
+        if(isValid){
+            this.toArray();
+        }
+
+        // this.toArray();
 
         this.clearFields(); // clears form; invalidates all
 
     
+    }
+
+
+    formValidation(){
+        const serial = this.props.serial[0].trim();
+        const mac = this.props.mac[0].trim();
+        const desc = this.props.desc[0].trim();
+
+        let serialErr = {};
+        let macErr = {};
+        let descErr = {};
+        let isValid = true;
+
+        if(serial.length == 0){
+            serialErr.empty = 'Serial Number is empty!'
+            isValid = false;
+        }
+
+        if(mac.length == 0){
+            macErr.short = "MAC Address is empty!";
+            isValid = false;
+        }
+
+        if(desc.length == 0){
+            descErr.short = "Description is empty!";
+            isValid = false;
+        }
+
+        // Sets determined error to form error this.state.
+        this.setState({
+            serialError: serialErr,
+            macError: macErr,
+            descError: descErr,
+        })
+        
+        //boolean ture/ false if everything is good with entered data.
+        return isValid;
     }
 
     render(){
@@ -159,13 +169,22 @@ class BarcodeForm extends react.Component{
                                     id="serial" 
                                     size="md" 
                                     value={this.props.serial[0]} 
-                                    onChange={(e)=>{this.handleSerialChange(e)}} 
+                                    onInput={(e)=>{this.handleSerialChange(e)}} 
                                     title='serial' 
                                     placeholder="SERIAL" 
                                 />
-                                <Form.Control.Feedback >
-                                    Looks good!
-                                </Form.Control.Feedback>
+                                        {/* //RETURNS ERROR, ONSCREEN  */}
+                                    {Object.keys(this.state.serialError).map((key)=>{
+                                        return (
+                                            <>
+                                                <small style={{color: 'red'}}>
+                                                    {this.state.serialError[key]}
+                                                </small>
+                                                <br />
+                                            </>
+                                        )
+
+                                    })}
                            
                             </Form.Group>
                         </Row>
@@ -181,9 +200,14 @@ class BarcodeForm extends react.Component{
                                     title='mac'
                                     placeholder="MAC_ADDRESS" 
                                 />
-                                <Form.Control.Feedback >
-                                    Looks good!
-                                </Form.Control.Feedback>
+                                    {Object.keys(this.state.macError).map((key)=>{
+                                        return (
+                                            <small style={{color: 'red'}}>
+                                                {this.state.macError[key]}
+                                            </small>
+                                        )
+
+                                    })}
                             </Form.Group>
                         </Row>
                         <Row>
@@ -198,9 +222,14 @@ class BarcodeForm extends react.Component{
                                     title='desc' 
                                     placeholder="DESCRIPTION" 
                                 />
-                                <Form.Control.Feedback >
-                                    Looks good!
-                                </Form.Control.Feedback>
+                                    {Object.keys(this.state.descError).map((key)=>{
+                                        return (
+                                            <small style={{color: 'red'}}>
+                                                {this.state.descError[key]}
+                                            </small>
+                                        )
+
+                                    })}
 
                             </Form.Group>
                         </Row>

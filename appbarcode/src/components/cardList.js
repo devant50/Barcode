@@ -1,12 +1,12 @@
-import NavItem from "@restart/ui/esm/NavItem";
+//import NavItem from "@restart/ui/esm/NavItem";
 import react from "react";
 import BarcodeCard from "./card";
 import { Table } from 'react-bootstrap';
 
 class BarcodeCardList extends react.Component{
-    constructor(props){
-        super(props);
-    }
+    // constructor(props){
+    //     super(props);
+    // }
 
     // incrementer(){
     //    let counter= this.props.counter[0];
@@ -38,7 +38,7 @@ class BarcodeCardList extends react.Component{
                             <tr>
                                 <BarcodeCard 
                                     counter={index+1} 
-                                    key={index}  
+                                    key={[index]}  
                                     mac={card.mac} 
                                     serial={card.serial} 
                                     desc={card.desc}

@@ -1,4 +1,4 @@
-import react from 'react';
+//import react from 'react';
 import { useBarcode } from 'react-barcodes';
 // import { Card } from 'react-bootstrap';
 
@@ -18,7 +18,7 @@ function GenerateBarcode (props){
 
     return(
         <div>
-            <img ref={inputRef} className='img-fluid rounded' />
+            <img alt={props.serial} ref={inputRef} className='img-fluid rounded' />
         </div>
     )
 }

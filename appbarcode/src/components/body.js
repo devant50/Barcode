@@ -7,10 +7,10 @@ import BarcodeForm from './forms.js';
 
 
 class Body extends React.Component {
-    constructor(props){
-        super(props);
+    // constructor(props){
+    //     super(props);
 
-    }
+    // }
     
 render(){
     return(
