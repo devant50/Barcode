@@ -110,9 +110,7 @@ class BarcodeForm extends react.Component{
 
         // this.toArray();
 
-        this.clearFields(); // clears form; invalidates all
-
-    
+        //this.clearFields(); // clears form; invalidates all
     }
 
 
@@ -177,7 +175,7 @@ class BarcodeForm extends react.Component{
                                     {Object.keys(this.state.serialError).map((key)=>{
                                         return (
                                             <>
-                                                <small style={{color: 'red'}}>
+                                                <small className='text-center' style={{color: 'red'}}>
                                                     {this.state.serialError[key]}
                                                 </small>
                                                 <br />

@@ -4,26 +4,21 @@ import BarcodeCard from "./card";
 import { Table } from 'react-bootstrap';
 
 class BarcodeCardList extends react.Component{
-    // constructor(props){
-    //     super(props);
-    // }
+    constructor(props){
+        super(props);
+    }
 
-    // incrementer(){
-    //    let counter= this.props.counter[0];
-    //    const setCounter = this.props.counter[1];
-       
-    //    console.log(counter);
-    //    setCounter(counter);
+    removeCard(){
+        console.log('removeCard');
+    }
 
-    // }
-  
-
-
+    //this.removeCard();
+    
     render(){
         return(
             <div id='BCL'>
-                {/* <h2>Barcode Card List</h2> */}
-                <Table className="table table-sm table-striped">
+                
+                <Table className="table table-hover table-sm table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -32,22 +27,26 @@ class BarcodeCardList extends react.Component{
                             <th>Description</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='table-hover'>
                     {this.props.cards[0].map((card, index ) =>{
                         return(
-                            <tr>
-                                <BarcodeCard 
-                                    counter={index+1} 
-                                    key={[index]}  
-                                    mac={card.mac} 
-                                    serial={card.serial} 
-                                    desc={card.desc}
-                                />
-                            </tr>
+                            < >
+                                <tr>
+                                    <BarcodeCard 
+                                        id={card+index}
+                                        counter={index+1} 
+                                        key={[index]}  
+                                        mac={card.mac} 
+                                        serial={card.serial} 
+                                        desc={card.desc}
+                                    />
+                                </tr>
+                            
+                            </>
                         
                         )
                         }).reverse() }
-                        
+                        {/* {console.log(this.props.cards[0])}                  } */}
                     </tbody>
 
                 </Table>
