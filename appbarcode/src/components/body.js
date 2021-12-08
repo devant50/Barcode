@@ -28,6 +28,7 @@ render(){
                         serial = { this.props.serial } 
                         mac={ this.props.mac } 
                         desc={this.props.desc} 
+                        icons={this.props.icons}
                     />
                 </div>
 
@@ -36,6 +37,8 @@ render(){
                     <BarcodeCardList 
                         // counter={this.props.counter} 
                         cards={this.props.cards}
+                        icons={this.props.icons}
+
                     />
                 </div>
                 

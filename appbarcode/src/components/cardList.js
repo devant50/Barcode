@@ -4,9 +4,9 @@ import BarcodeCard from "./card";
 import { Table } from 'react-bootstrap';
 
 class BarcodeCardList extends react.Component{
-    constructor(props){
-        super(props);
-    }
+    // constructor(props){
+    //     super(props);
+    // }
 
     removeCard(){
         console.log('removeCard');
@@ -19,7 +19,7 @@ class BarcodeCardList extends react.Component{
             <div id='BCL'>
                 
                 <Table className="table table-hover table-sm table-striped">
-                    <thead>
+                    <thead style={{textAlign: 'center'}}>
                         <tr>
                             <th>#</th>
                             <th>Serial</th>
@@ -31,14 +31,17 @@ class BarcodeCardList extends react.Component{
                     {this.props.cards[0].map((card, index ) =>{
                         return(
                             < >
-                                <tr>
+                                <tr id={'card-'+index}>
                                     <BarcodeCard 
-                                        id={card+index}
+                                        id={index}
+                                        cards={this.props.cards}
                                         counter={index+1} 
                                         key={[index]}  
                                         mac={card.mac} 
                                         serial={card.serial} 
                                         desc={card.desc}
+                                        icons={this.props.icons}
+
                                     />
                                 </tr>
                             

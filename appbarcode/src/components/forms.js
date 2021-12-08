@@ -39,23 +39,10 @@ class BarcodeForm extends react.Component{
         //console.log("Description: "+ this.props.desc[0]);
     }
 
-    handleError(){
-
-    }
-
     //clears out the feilds after submit
     clearFields(){
         this.props.serial[1]('');
         this.props.mac[1]('');
-        //this.props.desc[1]('');
-
-        //invalidated the fields unless they are refilled
-        // this.setState({
-        //     serialValid: false,
-        //     macValid: false,
-        //     descValid: false
-        // });
-       
     }
 
     submitDisabled(){
@@ -76,7 +63,6 @@ class BarcodeForm extends react.Component{
             serial: this.props.serial[0],
             mac: this.props.mac[0],
             desc: this.props.desc[0],
-            //id: num+1
         }]
 
         this.props.cards[1](currentArray.concat(newElement));
@@ -84,7 +70,7 @@ class BarcodeForm extends react.Component{
 
     onPrint(){
         //this.props.status[1](!this.props.status[0])
-
+        // document.getElementById("cardButton").outerHTML='';
         let divContents = document.getElementById("BCL").innerHTML;
         let a = window.open('', '', 'height=500, width=500');
         a.document.write('<html>');
@@ -107,10 +93,6 @@ class BarcodeForm extends react.Component{
         if(isValid){
             this.toArray();
         }
-
-        // this.toArray();
-
-        //this.clearFields(); // clears form; invalidates all
     }
 
 
@@ -124,17 +106,17 @@ class BarcodeForm extends react.Component{
         let descErr = {};
         let isValid = true;
 
-        if(serial.length == 0){
+        if(serial.length === 0){
             serialErr.empty = 'Serial Number is empty!'
             isValid = false;
         }
 
-        if(mac.length == 0){
+        if(mac.length === 0){
             macErr.short = "MAC Address is empty!";
             isValid = false;
         }
 
-        if(desc.length == 0){
+        if(desc.length === 0){
             descErr.short = "Description is empty!";
             isValid = false;
         }
@@ -153,11 +135,7 @@ class BarcodeForm extends react.Component{
     render(){
         return(
             <div>
-                <Form noValidate id='form' onSubmit={this.handleSubmit} >
-                {
-            //(true/false)? [return true] : [return false]
-            //When use clicks print, the form is hidden.
-                    !this.props.status[0] ? (          
+                <Form noValidate id='form' onSubmit={this.handleSubmit} >          
                     <Col>
                         <Row>
                             <Form.Group className='mb-1'>
@@ -230,17 +208,32 @@ class BarcodeForm extends react.Component{
                                     })}
 
                             </Form.Group>
+                            
                         </Row>
-                    </Col> ): null
-                    
-                }
-                <Row>
+                        <Row>
+                            <Form.Group>
+                                <Form.Select aria-label="Default select example">
+                                    <option>Model</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </Form.Select>                      
+                                    
+                            </Form.Group>
+                        </Row>  
+                        <br />
 
-                    <div className="d-grid gap-2 d-md-block">
-                        <Button id="submit" className="btn btn-primary" type="submit">Submit</Button>
-                        <Button className="btn btn-primary my-2" onClick={()=>{this.onPrint()}}>Print</Button>
-                    </div>
-                </Row>
+                        <Row>
+
+                            <Form.Group>
+                                <div className="d-grid gap-2 d-md-block">
+                                    <Button id="submit" className="btn btn-primary" type="submit">Submit</Button>
+                                    <Button className="btn btn-primary my-2" onClick={()=>{this.onPrint()}}>Print</Button>
+                                </div>
+                            </Form.Group>
+                        </Row>
+
+                    </Col>
                 </Form>
             </div>
         )
