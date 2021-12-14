@@ -8,7 +8,6 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
     "barcode": "^0.1.0",
-    "bootstrap": "file:node_modules/bootstrap",
     "jsbarcode": "^3.11.5",
     "quagga": "^0.12.1",
     "react": "^17.0.2",
