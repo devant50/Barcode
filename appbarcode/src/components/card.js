@@ -24,7 +24,7 @@ class BarcodeCard extends react.Component{
                  {/* Remove and description Icons */}
                 <td >
                     <div >
-                        {this.props.desc}
+                        <small>{this.props.desc}</small>
                     </div>
                 </td>
 

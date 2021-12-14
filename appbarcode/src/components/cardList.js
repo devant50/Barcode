@@ -1,5 +1,6 @@
 //import NavItem from "@restart/ui/esm/NavItem";
 import react from "react";
+import reactdom from "react-dom";
 import BarcodeCard from "./card";
 import { Table } from 'react-bootstrap';
 
@@ -16,7 +17,7 @@ class BarcodeCardList extends react.Component{
     
     render(){
         return(
-            <div id='BCL'>
+            <div id='BCL_'>
                 
                 <Table className="table table-hover table-sm table-striped">
                     <thead style={{textAlign: 'center'}}>

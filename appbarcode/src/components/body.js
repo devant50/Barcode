@@ -1,6 +1,8 @@
 import React from 'react';
+import reactdom from 'react-dom';
 import BarcodeCardList from './cardList.js';
 import BarcodeForm from './forms.js';
+import OnPrint from './onprint.js';
 //import './scanner';
 
 
@@ -43,8 +45,13 @@ render(){
                 </div>
                 
             </div>
+
+            <div  id='BCL' className="card-group" style={{height:"350px", overflow: 'scroll'}}>
+                <OnPrint cards={this.props.cards}/>
+            </div>
             
         </div>
+
 
         )
     }    
