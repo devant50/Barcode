@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 //import logo from './logo.svg';
-import 'bootstrap-5.1.3-dist/css/bootstrap.css';
+import 'bootstrap-git/dist/css/bootstrap.css';
 
 // import './App.css';
 import Body from './components/body.js';
