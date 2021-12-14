@@ -1,6 +1,8 @@
 // import { useState } from 'react';
 //import logo from './logo.svg';
-import 'bootstrap-git/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import deleteButton from 'bootstrap-icons/icons/x-circle.svg';
+import expandButton from 'bootstrap-icons/icons/zoom-in.svg';
 
 // import './App.css';
 import Body from './components/body.js';
@@ -12,6 +14,7 @@ function App() {
   const [description, setDescription] = useState('6920 Phone')
   const [cardArray,appendCardArray] = useState([]);
   const [isReady, setReady] = useState(false);
+  const icons = [deleteButton, expandButton];
   // const [counter, setCounter] = useState(0);
 
   return (
@@ -23,6 +26,7 @@ function App() {
         mac={[mac, setMac]} 
         desc={[description, setDescription]}
         status = {[isReady, setReady]} 
+        icons = {icons}
         // counter ={[counter, setCounter]}
         />
 
