@@ -74,48 +74,70 @@ class BarcodeForm extends react.Component{
         let divContents = document.getElementById("BCL").innerHTML;
         const style = (
             `<style>
+                
                 @media print {
                     *{
                         margin:0;
+                        //margin-top:0;
+                        //margin-block:0;
                     }
 
                     @page {
-                        //margin:auto;
+                        margin: 2cm;
+                        //width:86mm;
+                        size: landscape;
                     }
 
 
                     #label{
                         display: block;
+                        width:86mm;
+                        //height:60mm;
                         border:1px dashed black;
-                        //margin-right:50px;
-                        /page-break-after:always;
-                        /page-break-before:always;
-                        /page-break-inside:avoid;
-                    }
-
-                    #label table{
-                        //margin-right:50px;
-                    }
+                        //margin:50px;
+                        //page-break-before:always;
+                        //page-break-after:always;
+                        // page-break-inside:avoid;
     
-                    #label li{
+                    }
+                        
+                    #label ul li{
                         list-style-type:none;
                     }
+                    
+                    .label-container{
+                        display: block;
+                        width: 86mm;
+                        margin: auto;
+                        //height: 60mm;
+                        //page-break-before:always;
+                        page-break-after:always;
+                        page-break-inside:avoid;
+                    }
 
 
-                }
+                } //END OF PRINT
 
                 #label{
-                    //display: block;
-                    width:60mm;
-                    height:86mm;
+                    display: block;
+                    width:86mm;
+                    height:60mm;
                     border:1px dashed black;
-                    //margin:50px;
+                    margin: auto;
                     page-break-before:always;
-                    page-break-inside:always;
-                }
+                    page-break-after:always;
+                    page-break-inside:avoid;
+
+                }                
+
 
                 #label li{
                     list-style-type:none;
+                }
+
+                #barcode_img{
+                    display:block;
+                    width: 100%;
                 }
                 
             </style>`)
@@ -124,9 +146,9 @@ class BarcodeForm extends react.Component{
         
         let a = window.open('', '', 'height=500px, width=500px');
         a.document.write('<html>');
-        a.document.write('<head>');
+        //a.document.write('<head>');
         // a.document.write('<link rel="stylesheet" href="/home/anthony/Desktop/project/Barcode/appbarcode/src/print.css"/>')
-        a.document.write('</head>');
+        //a.document.write('</head>');
         a.document.write('<body>');
         a.document.write(style);
         a.document.write(divContents);

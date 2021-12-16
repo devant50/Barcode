@@ -12,13 +12,13 @@ function GenerateBarcode (props){
         options: {
           background: '#ffffff',
           height: 30,
-          margin: 10
+        //   margin: 10
         }
     });
 
     return(
         <div>
-            <img alt={props.serial} ref={inputRef} className='img-fluid rounded' />
+            <img id="barcode_img" alt={props.serial} ref={inputRef} className='img-fluid rounded' />
         </div>
     )
 }

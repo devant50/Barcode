@@ -8,37 +8,35 @@ function OnPrint(props){
     const cards = props.cards[0];
     //console.log(cards)
     return(
-        <>
+        <div>
             {props.cards[0].map((card, index ) =>{
                 // console.log(card.serial);
                     return(
                         < >
                             <td id="label">
-                                <div className="" >
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
+                                <div className="label-container">
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item">
                                             <GenerateBarcode barcode = {card.serial}/>
                                         </li>
-                                        <li class="list-group-item">
+                                        <li className="list-group-item">
                                             <GenerateBarcode barcode = {card.mac}/>
 
                                         </li>
-                                        <li class="list-group-item">
+                                        <li className="list-group-item">
                                             <small className="text-center">{card.desc}</small>
 
                                         </li>
                                     </ul>
                                 </div>
-                            </td>
-                            <br />
-                                                   
+                            </td>                                                  
                         </>
                     
                     )
                     }).reverse() }
         
         
-        </>
+        </div>
     )
 
 }
