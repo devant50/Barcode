@@ -14,7 +14,7 @@ function OnPrint(props){
                     return(
                         < >
                             <td id="label">
-                                <div className="">
+                                <div className="" >
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">
                                             <GenerateBarcode barcode = {card.serial}/>
