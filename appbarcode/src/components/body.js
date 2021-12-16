@@ -46,7 +46,7 @@ render(){
                 
             </div>
 
-            <section  id='BCL' style={{height:"350px"}}>
+            <section  id='BCL'>
                 <Table>
                     <tbody>
                         <tr>
