@@ -72,8 +72,11 @@ class BarcodeForm extends react.Component{
         //this.props.status[1](!this.props.status[0])
         // document.getElementById("cardButton").outerHTML='';
         let divContents = document.getElementById("BCL").innerHTML;
-        let a = window.open('', '', 'height=500, width=500');
+        let a = window.open('', '', 'height=500, width=5000');
         a.document.write('<html>');
+        a.document.write('<head>');
+        a.document.write('<link rel="stylesheet" href="">')
+        a.document.write('</head>');
         //a.document.write('<body > <h1>Div contents are <br>');
         a.document.write(divContents);
         a.document.write('</body></html>');

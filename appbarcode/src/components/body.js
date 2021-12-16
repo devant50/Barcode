@@ -3,6 +3,7 @@ import reactdom from 'react-dom';
 import BarcodeCardList from './cardList.js';
 import BarcodeForm from './forms.js';
 import OnPrint from './onprint.js';
+import {Table} from 'react-bootstrap';
 //import './scanner';
 
 
@@ -40,14 +41,19 @@ render(){
                         // counter={this.props.counter} 
                         cards={this.props.cards}
                         icons={this.props.icons}
-
                     />
                 </div>
                 
             </div>
 
-            <div  id='BCL' className="card-group" style={{height:"350px", overflow: 'scroll'}}>
-                <OnPrint cards={this.props.cards}/>
+            <div  id='BCL' style={{height:"350px"}}>
+                <Table>
+                    <tbody>
+                        <tr>
+                            <OnPrint cards={this.props.cards}/>
+                        </tr>
+                    </tbody>
+                </Table>
             </div>
             
         </div>

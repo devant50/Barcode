@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import deleteButton from 'bootstrap-icons/icons/x-circle.svg';
 import expandButton from 'bootstrap-icons/icons/zoom-in.svg';
 
-// import './App.css';
+import './App.css';
 import Body from './components/body.js';
 import { useState } from 'react';
 

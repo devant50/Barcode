@@ -13,35 +13,25 @@ function OnPrint(props){
                 // console.log(card.serial);
                     return(
                         < >
-                            <div className="card">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <GenerateBarcode barcode = {card.serial}/>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <GenerateBarcode barcode = {card.mac}/>
+                            <td id="label">
+                                <div className="">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <GenerateBarcode barcode = {card.serial}/>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <GenerateBarcode barcode = {card.mac}/>
 
-                                    </li>
-                                    <li class="list-group-item">
-                                        <small className="text-center">{card.desc}</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <small className="text-center">{card.desc}</small>
 
-                                    </li>
-                                </ul>
-                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
                             <br />
-                            
-                            {/* <div>
-                                <Table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </Table>
-                            </div> */}
-                        
+                                                   
                         </>
                     
                     )
